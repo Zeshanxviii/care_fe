@@ -42,6 +42,26 @@ npm install
 npm run dev
 ```
 
+## Supported Browsers Script
+
+The `supported-browsers` script generates a `supportedBrowsers.ts` file that exports a regular expression based on the project's `browserslist` configuration. This script helps maintain compatibility with different browser versions as defined by the project.
+
+### How it works
+
+The script uses the `browserslist-useragent-regexp` package to create a regular expression that matches user-agent strings for supported browsers.
+
+#### Breakdown:
+- **`--allowHigherVersions`**: Allows browsers with versions higher than those specified in `browserslist`.
+- **`--ignorePatch`**: Ignores patch versions (e.g., `89.0.1` will match `89`).
+- **`--ignoreMinor`**: Ignores minor versions (e.g., `89.0` will match all `89.x` versions).
+
+#### How to generate the supported browsers file:
+Run the following command to generate the `supportedBrowsers.ts` file:
+
+```bash
+npm run supported-browsers
+
+
 Once the development server has started, open [localhost:4000](http://localhost:4000) in your browser. The page will be automatically reloaded when you make edits and save. You will also see any lint errors in the console.
 
 #### 🔑 Staging API Credentials
